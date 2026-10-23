@@ -10,6 +10,9 @@ updated: "2026-10-23"
 
 为了方便复用骨骼动画，Unity 提供了骨骼重映射工具，可以骨骼重映射到 Unity 的标准骨骼集。
 
-做法如下。
+做法如下，例如现有 A 模型，A 模型动画，B 模型。
 
-首先在模型处
+首先在模型处 Rig Avatar Definition 创建 Avatar，然后给动画处 Avatar 绑定 A 模型的 Avatar，这个时候就已经将动画映射到 Unity 的标准骨骼集了。
+
+然后给 B 模型 Rig > Avatar > Definition 创建 Avatar，然后便能直接使用 A 模型的骨骼动画，达到复用动画的目的。
+

@@ -130,3 +130,11 @@ The character with Unicode value \u5668 was not found in the [fusion-pixel-12px-
 
 完。
 
+## 【已解决】第十一回 关于骨骼映射系统的迷惑设计
+> 为啥我给A模型设置自动创建avatar，然后A模型配套动画选择Humoniod并且Copy from Avatar选了A模型，但是动画的播放预览页面是不动的。而原来 Generic 是可以正确运行的。
+
+事实证明 DeepSeek V4 Flash 1017 也不知道这个问题的答案，我根据解决方案猜测出来了答案。
+
+我的猜测是，在 Humanoid 条件下，因为重映射骨骼和骨骼动画的机制，动画预览窗口需要 模型 + 动画 才能完成动画播放，而在 Generic 条件下通常会自动找到对应的模型。在这个情景中从 Generic 切换到 Humanoid 会导致动画预览窗口失去关于模型的索引（因为动画复用机制，需要指定一个实际的模型才能播放动画）
+
+解决方案是往动画预览窗口拖入一个已经建立过 Avatar 的模型就可以了。
