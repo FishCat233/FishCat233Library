@@ -111,9 +111,9 @@ plugins:
   - source: "@quartz-community/quartz-fonts"
     enabled: true
   - source: "@quartz-themes/core"
-    enabled: true
+    enabled: false
     options:
-      theme: default
+      theme: catppuccin
       mode: both
   - source: "@quartz-community/remove-draft"
     enabled: true
@@ -283,7 +283,13 @@ plugins:
       enableInteraction: true
       darkMode: auto
       exportPadding: 20
-      # enableInHtmlEmbed: true
+    order: 50
+  - source: github:quartz-community/obsidian-plugin-excalidraw
+    enabled: true
+    options:
+      enableInteraction: true
+      darkMode: auto
+      exportPadding: 20
     order: 50
 layout:
   groups:
