@@ -1,3 +1,39 @@
 @use "./variables.scss" as *;
 
 // put your custom CSS here!
+
+/* ── 中栏纸色，旁边纸色褪灰 ────────────────────────────────────────────
+   页面底板（左右侧栏、页边、栏间距）用褪灰的纸色，阅读列保持原纸色，
+   形成「灰底上摊一张纸」的层次。纸色本身仍来自配置里的 --light。
+   -------------------------------------------------------------------- */
+
+:root {
+  --page-bg: #eae8e3;
+  --blueprint: #79b8ff; // 站点的亮蓝图蓝，只留给装饰线，不给正文文字
+}
+
+:root[saved-theme="dark"] {
+  --page-bg: #1d1c19;
+}
+
+body {
+  background-color: var(--page-bg);
+}
+
+#quartz-body>.center,
+#quartz-body>footer {
+  background-color: var(--light);
+  // 纸的上沿接页顶，留方角；下沿收圆
+  border-radius: 0 0 8px 8px;
+}
+
+// 纸面别钉在字上：左右留白，宽度不够时字不会贴到纸/灰交界线
+// Quartz 没有全局 border-box，padding 会把 .center 撑出网格列、把右侧栏盖住，得补 box-sizing
+#quartz-body>.center {
+  box-sizing: border-box;
+  padding-inline: clamp(1.5rem, 4vw, 3rem);
+
+  @media all and ($mobile) {
+    padding-inline: 1rem;
+  }
+}
