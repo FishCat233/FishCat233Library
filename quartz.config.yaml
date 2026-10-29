@@ -18,7 +18,7 @@ configuration:
     typography:
       header: Schibsted Grotesk
       body: Source Sans Pro
-      code: Jetbrain Mono
+      code: Jetbrains Mono
     colors:
       lightMode:
         light: "#f6f4ef"
